@@ -1,6 +1,6 @@
 # centiment-assignment
 
-This Repo is for an assignment at Centiment company for a frpnt-end developer position
+This Repo is for an assignment at Centiment company for a front-end developer position
 
 ## Recommended IDE Setup
 
