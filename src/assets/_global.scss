@@ -1,0 +1,9 @@
+@import './variables';
+@import './breakpoints-mixin';
+body {
+  background-color: $background-light;
+  min-height: 100vh;
+}
+* {
+  font-family: 'Inter', sans-serif;
+}
