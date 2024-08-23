@@ -7,3 +7,17 @@ body {
 * {
   font-family: 'Inter', sans-serif;
 }
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin-inline: auto;
+  @include breakpoint(lg) {
+    max-width: 100%;
+    padding-inline: 3rem;
+  }
+
+  @include breakpoint(sm) {
+    max-width: 100%;
+    padding-inline: 1.5rem;
+  }
+}

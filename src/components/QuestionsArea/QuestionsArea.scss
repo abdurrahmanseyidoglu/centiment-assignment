@@ -1,0 +1,87 @@
+@import '../../assets/scss/variables';
+.questions {
+  width: 100%;
+  &-navigation {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-inline-end: 0.5rem;
+    &__prev,
+    &__next {
+      padding: 0.25rem;
+      border: 1px solid #c0c4f7;
+      border-radius: 0.25rem;
+      background-color: $background-light;
+      &:hover {
+        cursor: pointer;
+        background-color: darken($background-light, 3);
+      }
+    }
+  }
+
+  .single-question {
+    &__prev {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.25rem;
+      background-color: $background-light;
+      border: none;
+      font-size: 0.813rem;
+      margin-bottom: 1rem;
+      &:hover {
+        cursor: pointer;
+      }
+      p {
+        color: $text-light;
+        font-weight: 500;
+      }
+    }
+    &__header {
+      margin-bottom: 3rem;
+    }
+    &__title {
+      font-size: 1.25rem;
+      color: $text-main;
+      margin-bottom: 0.5rem;
+    }
+    &__sub-title {
+      font-size: 0.813rem;
+      color: $text-light;
+    }
+    &__options-wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      align-items: stretch;
+      margin-bottom: 3rem;
+    }
+    &__options {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 432px;
+    }
+    &__option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem;
+      background-color: $text-lightest;
+      border: 1px solid #d6d5d6;
+      border-radius: 0.5rem;
+      margin-bottom: 0.75rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &__options--ranked {
+      display: flex;
+      border: 1px solid red;
+      width: 100%;
+      max-width: 432px;
+    }
+  }
+}

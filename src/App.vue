@@ -3,10 +3,11 @@
     <AppNavbar />
   </header>
   <main>
-    <h2>This is the main section</h2>
+    <QuestionsArea />
   </main>
 </template>
 
 <script setup lang="ts">
 import AppNavbar from './components/AppNavbar/AppNavbar.vue'
+import QuestionsArea from './components/QuestionsArea/QuestionsArea.vue'
 </script>
