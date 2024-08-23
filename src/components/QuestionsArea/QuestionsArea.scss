@@ -51,14 +51,14 @@
       font-size: 0.813rem;
       color: $text-light;
     }
-    &__options-wrapper {
+    &__lists-wrapper {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       align-items: stretch;
       margin-bottom: 3rem;
     }
-    &__options {
+    &__options-list {
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -70,18 +70,79 @@
       justify-content: space-between;
       padding: 1.25rem;
       background-color: $text-lightest;
-      border: 1px solid #d6d5d6;
-      border-radius: 0.5rem;
+      border: 2px solid #d6d5d6;
+      border-radius: 0.375em;
       margin-bottom: 0.75rem;
       &:hover {
         cursor: pointer;
       }
     }
-    &__options--ranked {
+    &__ranked-list {
       display: flex;
-      border: 1px solid red;
+      flex-direction: column;
       width: 100%;
       max-width: 432px;
+      align-items: flex-end;
+      position: relative;
+      & > div:first-child {
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+    &__ranked-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem;
+      background-color: $text-lightest;
+      border: 2px solid #d6d5d6;
+      border-radius: 0.375rem;
+      margin-bottom: 0.75rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &__reset {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.375rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 3;
+      p {
+        color: $text-light;
+        font-size: 0.813rem;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &__placeholders {
+      position: absolute;
+      top: 0;
+      inset-inline-start: 0;
+      width: 100%;
+      z-index: 0;
+    }
+    &__placeholder {
+      height: 64px;
+      border: 2px dashed #c0c4f7;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      position: relative;
+
+      p {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        inset-inline-start: -1.5rem;
+        font-size: 1.188rem;
+        color: $accent-accent-text;
+        width: 1.5rem;
+      }
     }
   }
 }
