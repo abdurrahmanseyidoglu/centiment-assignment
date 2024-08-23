@@ -2,7 +2,6 @@
   <div class="navbar">
     <div class="navbar__logo">
       <IconPrimaryLogo />
-      <p class="navbar__company-name">centiment</p>
     </div>
   </div>
 </template>
