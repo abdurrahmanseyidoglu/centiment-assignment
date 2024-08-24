@@ -24,3 +24,8 @@ body {
 .blue-background {
   background-color: rgba($accent-main, 0.3) !important ;
 }
+.ellipsis-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

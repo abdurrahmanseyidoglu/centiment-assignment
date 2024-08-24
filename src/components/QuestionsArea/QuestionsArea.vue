@@ -69,6 +69,9 @@
           </div>
         </div>
       </div>
+      <button class="single-question__next" @click="handleNextClick">
+        <p>Next</p>
+      </button>
     </div>
   </div>
 </template>
@@ -114,35 +117,35 @@ const originalOptionsList = ref<Option[]>([
 
 //Get a copy of the original array to work on it while keeping the original one untouched for the RESET button
 const optionsList = ref<Option[]>(originalOptionsList.value)
-const rankedOptions = ref<Option[] | []>([])
-const isDragDisabled = ref(false)
-function disableOptionsListDrag() {
+const rankedOptions = ref<Option[]>([])
+const isDragDisabled = ref<boolean>(false)
+function disableOptionsListDrag(): void {
   if (rankedOptions.value.length >= 3) {
     isDragDisabled.value = true
   }
 }
-// function handleClick(event: MouseEvent | TouchEvent) {
-//   console.log('Item clicked!')
-//   console.log(event.target)
-// }
-function onAdd() {
+
+function onAdd(): void {
   disableOptionsListDrag()
 }
-function onRemove() {
+function onRemove(): void {
   disableOptionsListDrag()
 }
 
-function onStart() {
-  //Make it false so user can drag from the Ranked List back to the options list
+function onStart(): void {
+  //Make it false so user can drag from the ranked list back to the options list
   isDragDisabled.value = false
 }
-function onEnd() {
+function onEnd(): void {
   disableOptionsListDrag()
 }
-function handleReset() {
+function handleReset(): void {
   // Reset optionsList to its original state
   optionsList.value = [...originalOptionsList.value]
   rankedOptions.value.length = 0
   isDragDisabled.value = false
+}
+function handleNextClick() {
+  rankedOptions.value.forEach((option) => console.log(option.label))
 }
 </script>
