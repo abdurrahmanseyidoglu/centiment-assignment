@@ -3,7 +3,7 @@
     <AppNavbar />
   </header>
   <main>
-    <QuestionsArea />
+    <QuestionsArea :max-ranked-items="3" />
   </main>
 </template>
 

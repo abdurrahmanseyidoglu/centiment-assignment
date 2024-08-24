@@ -1,0 +1,28 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/breakpoints-mixin';
+.option-placeholder {
+  height: 64px;
+  border: 2px dashed #c0c4f7;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  position: relative;
+
+  p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    inset-inline-start: -1.5rem;
+    font-size: 1.188rem;
+    color: $accent-accent-text;
+    width: 1.5rem;
+  }
+}
+@include breakpoint(lg) {
+  .option-placeholder {
+    p {
+      inset-inline-start: -1rem;
+      font-size: 1rem;
+      width: fit-content;
+    }
+  }
+}

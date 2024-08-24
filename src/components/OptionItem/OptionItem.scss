@@ -1,0 +1,20 @@
+@import '../../assets/scss/variables';
+.single_option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem;
+  background-color: $text-lightest;
+  border: 2px solid #d6d5d6;
+  border-radius: 0.375em;
+  margin-bottom: 0.75rem;
+  height: 64px;
+
+  &:hover {
+    cursor: pointer;
+  }
+  svg {
+    min-width: 19px;
+  }
+}

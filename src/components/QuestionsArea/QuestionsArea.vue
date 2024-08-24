@@ -19,7 +19,11 @@
         </p>
         <p class="single-question__sub-title">Rank your top three items</p>
       </div>
-      <div class="single-question__lists-wrapper">
+      <div
+        class="single-question__lists-wrapper"
+        ref="listsWrapper"
+        :style="{ minHeight: listsWrapperHeight + 'px' }"
+      >
         <div class="single-question__options-list">
           <VueDraggable
             v-model="optionsList"
@@ -30,15 +34,17 @@
             :sort="false"
             :disabled="isDragDisabled"
           >
-            <div class="single-question__option" v-for="option in optionsList" :key="option.id">
-              <p>{{ option.label }}</p>
-              <IconGrayArrowRight />
-            </div>
+            <OptionItem
+              v-for="option in optionsList"
+              :key="option.id"
+              :option="option"
+              :isRanked="false"
+            />
           </VueDraggable>
         </div>
         <div class="single-question__ranked-list">
           <VueDraggable
-            v-model="rankedOptions"
+            v-model="rankedList"
             :animation="150"
             ghostClass="blue-background"
             dragClass="blue-background"
@@ -49,19 +55,16 @@
             @end="onEnd"
             @start="onStart"
           >
-            <div
-              class="single-question__ranked-option"
-              v-for="rankedItem in rankedOptions"
-              :key="rankedItem.id"
-            >
-              <p>{{ rankedItem.label }}</p>
-            </div>
+            <OptionItem
+              v-for="option in rankedList"
+              :key="option.id"
+              :option="option"
+              :isRanked="true"
+            />
           </VueDraggable>
 
           <div class="single-question__placeholders">
-            <div class="single-question__placeholder" v-for="i in 3" :key="i">
-              <p>{{ i }}</p>
-            </div>
+            <OptionPlaceholder v-for="i in props.maxRankedItems" :key="i" :order="i" />
             <div class="single-question__reset" @click="handleReset">
               <IconReset />
               <p>Reset</p>
@@ -79,19 +82,21 @@
 @import './QuestionsArea.scss';
 </style>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { VueDraggable } from 'vue-draggable-plus'
 import IconBlueArrowDown from '../icons/IconBlueArrowDown.vue'
 import IconBlueArrowUp from '../icons/IconBlueArrowUp.vue'
-import IconGrayArrowRight from '../icons/IconGrayArrowRight.vue'
 import IconGrayArrowUp from '../icons/IconGrayArrowUp.vue'
 import IconReset from '../icons/IconReset.vue'
-
-interface Option {
-  label: string
-  id: number
-}
-
+import OptionItem from '../OptionItem/OptionItem.vue'
+import OptionPlaceholder from '../OptionPlaceholder/OptionPlaceholder.vue'
+import type { Option } from '@/types/interfaces'
+const props = defineProps({
+  maxRankedItems: {
+    type: Number,
+    default: 2
+  }
+})
 const originalOptionsList = ref<Option[]>([
   {
     label: 'Salary and benefits',
@@ -116,11 +121,12 @@ const originalOptionsList = ref<Option[]>([
 ])
 
 //Get a copy of the original array to work on it while keeping the original one untouched for the RESET button
-const optionsList = ref<Option[]>(originalOptionsList.value)
-const rankedOptions = ref<Option[]>([])
+const optionsList = ref<Option[]>([...originalOptionsList.value])
+const rankedList = ref<Option[]>([])
 const isDragDisabled = ref<boolean>(false)
+
 function disableOptionsListDrag(): void {
-  if (rankedOptions.value.length >= 3) {
+  if (rankedList.value.length >= props.maxRankedItems) {
     isDragDisabled.value = true
   }
 }
@@ -142,10 +148,19 @@ function onEnd(): void {
 function handleReset(): void {
   // Reset optionsList to its original state
   optionsList.value = [...originalOptionsList.value]
-  rankedOptions.value.length = 0
+  rankedList.value.length = 0
   isDragDisabled.value = false
 }
 function handleNextClick() {
-  rankedOptions.value.forEach((option) => console.log(option.label))
+  rankedList.value.forEach((option, index) => console.log(`${index + 1}. ${option.label}`))
 }
+
+const listsWrapper = ref<HTMLElement | null>(null)
+const listsWrapperHeight = ref<number>(0)
+
+onMounted(() => {
+  if (listsWrapper.value) {
+    listsWrapperHeight.value = listsWrapper.value.offsetHeight
+  }
+})
 </script>
