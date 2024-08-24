@@ -1,0 +1,30 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/breakpoints-mixin';
+.footer {
+  position: fixed;
+  bottom: 0.5rem;
+  inset-inline-end: 0.5rem;
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    border: 1px solid #d4d4d4;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+
+    p {
+      color: $text-main;
+    }
+  }
+}
+@include breakpoint(lg) {
+  .footer {
+    position: static;
+    margin: 0.5rem;
+    width: max-content;
+    margin-inline-start: auto;
+  }
+}
