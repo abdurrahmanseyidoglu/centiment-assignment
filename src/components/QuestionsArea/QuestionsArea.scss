@@ -11,13 +11,11 @@
     padding-inline-end: 0.5rem;
     &__prev,
     &__next {
-      padding: 0.25rem;
-      border: 1px solid #c0c4f7;
+      border: none;
       border-radius: 0.25rem;
-      background-color: $background-light;
+      background-color: transparent;
       &:hover {
         cursor: pointer;
-        background-color: darken($background-light, 3);
       }
     }
   }
@@ -127,7 +125,7 @@
 @include breakpoint(lg) {
   .questions {
     .single-question {
-      &__lists-wrapper{
+      &__lists-wrapper {
         justify-content: flex-start;
         align-items: center;
       }
