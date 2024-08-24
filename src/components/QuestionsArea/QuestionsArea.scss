@@ -11,13 +11,11 @@
     padding-inline-end: 0.5rem;
     &__prev,
     &__next {
-      padding: 0.25rem;
-      border: 1px solid #c0c4f7;
-      border-radius: 0.25rem;
-      background-color: $background-light;
+      padding: 0;
+      border: none;
+      background-color: transparent;
       &:hover {
         cursor: pointer;
-        background-color: darken($background-light, 3);
       }
     }
   }
@@ -207,7 +205,7 @@
         }
       }
       &__next {
-        margin-block: 2rem;
+        margin-block: 1rem;
       }
     }
   }
