@@ -14,6 +14,9 @@ importers:
       vue-draggable-plus:
         specifier: ^0.5.3
         version: 0.5.3(@types/sortablejs@1.15.8)
+      vue3-toastify:
+        specifier: ^0.2.2
+        version: 0.2.2(vue@3.4.38(typescript@5.4.5))
     devDependencies:
       '@rushstack/eslint-patch':
         specifier: ^1.8.0
@@ -1254,6 +1257,15 @@ packages:
     peerDependencies:
       typescript: '>=5.0.0'
 
+  vue3-toastify@0.2.2:
+    resolution: {integrity: sha512-D8pmIp2UeU8MU1OY7GktA70HviZ38b1RagN82P7tFu3abUD86w+PjfmbdRch4QVtjVxK+eqKLvi5cXJRndwJfw==}
+    engines: {node: '>=18.18.0', npm: '>=9.0.0'}
+    peerDependencies:
+      vue: '>=3.2.0'
+    peerDependenciesMeta:
+      vue:
+        optional: true
+
   vue@3.4.38:
     resolution: {integrity: sha512-f0ZgN+mZ5KFgVv9wz0f4OgVKukoXtS3nwET4c2vLBGQR50aI8G0cqbFtLlX9Yiyg3LFGBitruPHt2PxwTduJEw==}
     peerDependencies:
@@ -2360,6 +2372,10 @@ snapshots:
       '@vue/language-core': 2.0.29(typescript@5.4.5)
       semver: 7.6.3
       typescript: 5.4.5
+
+  vue3-toastify@0.2.2(vue@3.4.38(typescript@5.4.5)):
+    optionalDependencies:
+      vue: 3.4.38(typescript@5.4.5)
 
   vue@3.4.38(typescript@5.4.5):
     dependencies:

@@ -1,4 +1,5 @@
 @import '../../assets/scss/variables';
+@import '../../assets/scss/breakpoints-mixin';
 .single_option {
   display: flex;
   align-items: center;
@@ -16,5 +17,12 @@
   }
   svg {
     min-width: 19px;
+  }
+}
+@include breakpoint(lg) {
+  .single_option {
+    svg {
+      transform: rotate(90deg);
+    }
   }
 }
