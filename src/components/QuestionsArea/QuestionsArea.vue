@@ -50,7 +50,6 @@
             group="ranking"
             :sort="true"
             @add="onAdd"
-            @remove="onRemove"
             @end="onEnd"
             @start="onStart"
           >
@@ -119,10 +118,6 @@ function updateOptionsListDraggableState(): void {
 }
 
 function onAdd(): void {
-  updateOptionsListDraggableState()
-}
-
-function onRemove(): void {
   updateOptionsListDraggableState()
 }
 
