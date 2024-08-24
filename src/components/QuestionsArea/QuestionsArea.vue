@@ -141,16 +141,17 @@ function handleNextClick() {
     rankedList.value.forEach(
       (option, index) => (rankedListResult += `<p>${index + 1}. ${option.label}</p>`)
     )
-    useNotify('default', `<strong>Your preferred options are: ${rankedListResult}</strong>`)
+    useNotify('default', `<strong>Your ranked options are: ${rankedListResult}</strong>`)
   } else {
-    useNotify('info', `Please rank all ${props.maxRankedItems} items first`)
+    useNotify('info', `Please rank all ${props.maxRankedItems} options first`)
   }
 }
 
-//click-to-select feature
+// START click-to-select feature
 function handleAddOption(option: Option) {
+  // Show a warning if the user tries to add more than the maxRankedItems
   if (rankedList.value.length === props.maxRankedItems) {
-    useNotify('warning', `You can't use more than ${props.maxRankedItems} items`)
+    useNotify('warning', `You can't ranks more than ${props.maxRankedItems} options`)
   }
   if (rankedList.value.length < props.maxRankedItems) {
     rankedList.value.push(option)
@@ -165,6 +166,7 @@ function handleRemoveOption(option: Option) {
   rankedList.value = rankedList.value.filter((filteredOption) => filteredOption.id !== option.id)
   updateOptionsListDraggableState()
 }
+// END click-to-select feature
 
 const optionsWrapper = ref<HTMLElement | null>(null)
 const optionsWrapperHeight = ref<number>(0)
