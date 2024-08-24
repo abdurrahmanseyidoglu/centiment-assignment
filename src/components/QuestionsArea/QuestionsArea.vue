@@ -151,7 +151,7 @@ function handleNextClick() {
 function handleAddOption(option: Option) {
   // Show a warning if the user tries to add more than the maxRankedItems
   if (rankedList.value.length === props.maxRankedItems) {
-    useNotify('warning', `You can't ranks more than ${props.maxRankedItems} options`)
+    useNotify('warning', `You can't rank more than ${props.maxRankedItems} options`)
   }
   if (rankedList.value.length < props.maxRankedItems) {
     rankedList.value.push(option)
