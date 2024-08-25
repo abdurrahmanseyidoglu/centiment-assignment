@@ -1,0 +1,17 @@
+.questions-navigation {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-inline-end: 0.5rem;
+  &__prev,
+  &__next {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

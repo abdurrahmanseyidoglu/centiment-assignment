@@ -3,7 +3,7 @@
     <AppNavbar />
   </header>
   <main>
-    <QuestionsArea :max-ranked-items="3" />
+    <QuestionsArea />
   </main>
   <footer>
     <AppFooter />
@@ -14,4 +14,9 @@
 import AppFooter from './components/AppFooter/AppFooter.vue'
 import AppNavbar from './components/AppNavbar/AppNavbar.vue'
 import QuestionsArea from './components/QuestionsArea/QuestionsArea.vue'
+import { provide } from 'vue'
+
+// Dynamically set the limit of the ranked values
+let maxRankedItemsKey = 3
+provide('maxRankedItemsKey', maxRankedItemsKey)
 </script>

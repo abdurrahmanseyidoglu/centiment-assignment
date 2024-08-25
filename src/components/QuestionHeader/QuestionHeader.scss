@@ -1,0 +1,15 @@
+@import '../../assets/scss/variables';
+.single-question {
+  &__header {
+    margin-bottom: 3rem;
+  }
+  &__title {
+    font-size: 1.25rem;
+    color: $text-main;
+    margin-bottom: 0.5rem;
+  }
+  &__sub-title {
+    font-size: 0.813rem;
+    color: $text-light;
+  }
+}
