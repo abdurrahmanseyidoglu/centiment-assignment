@@ -21,6 +21,7 @@
             :option="option"
             :isRanked="false"
             @click="handleAddOption(option)"
+            :class="rankedList.length>= maxRankedItems && 'disabled-option'"
           />
         </VueDraggable>
       </div>
@@ -135,6 +136,7 @@ function handleAddOption(option: Option) {
     )
     updateOptionsListDraggableState()
   }
+
 }
 function handleRemoveOption(option: Option) {
   optionsList.value.push(option)

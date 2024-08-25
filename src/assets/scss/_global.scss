@@ -29,3 +29,10 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.disabled-option {
+  opacity: 0.5 !important;
+  user-select: none !important;
+  &:hover {
+    cursor: not-allowed !important;
+  }
+}
